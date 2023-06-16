@@ -303,10 +303,13 @@ html,
 
 /* Footer */
 .footer {
+  position: relative;
+  left: 0;
+  width: 100%;
   background: hsl(var(--clr-gray-dk));
   color: hsl(var(--clr-white));
+  margin-top: auto;
 }
-
 .footer a {
   color: hsl(var(--clr-white));
 }
