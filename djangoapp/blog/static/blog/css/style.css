@@ -300,7 +300,7 @@ html,
 .search-content:focus-within .search-btn {
   color: hsl(var(--clr-primary-base));
 }
-
+ 
 /* Footer */
 .footer {
   position: relative;
@@ -326,7 +326,7 @@ html,
 
 /* Single Post */
 .single-post-content {
-  padding-top: var(--spacing-smlst);
+  padding-top: var(--spacing-smlr);
 }
 
 .single-post-title,
@@ -478,3 +478,4 @@ html,
 .card-action-link:hover {
   text-decoration: none;
 }
+
