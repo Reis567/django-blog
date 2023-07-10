@@ -1,13 +1,14 @@
-from typing import Any
+from typing import Any, Dict
 from django import http
 from django.core.paginator import Paginator
+from django.db import models
 from django.db.models.query import QuerySet
 from django.shortcuts import render,redirect
 from blog.models import Post,Page
 from django.db.models import Q
 from django.contrib.auth.models import User
 from django.http import Http404, HttpRequest, HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 PER_PAGE = 9
 
@@ -173,6 +174,24 @@ def search(request):
         }
     )
 
+
+class PageDetailView(DetailView):
+    model = Page
+    template_name = 'blog/pages/page.html'
+    slug_field = 'slug'
+    context_object_name = 'page'
+    
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        page = self.get_object()
+        page_title = f'{page.title} - Página - '
+        context.update({
+            'page_title':page_title,
+        })
+        return context
+    
+    def get_queryset(self) -> QuerySet[Any]:
+        return super().get_queryset().filter(is_published=True)
 
 def page(request,slug):
     page_obj = (
