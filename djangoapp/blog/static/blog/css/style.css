@@ -93,8 +93,10 @@ a {
 }
 
 a:hover {
-  color: hsl(var(--clr-primary-dk));
-  text-decoration: underline;
+  transition: .4s;
+  transform: translate( 3px);
+  color: var(--clr-gray-dkst);
+  cursor: pointer;
 }
 
 h1,
@@ -310,6 +312,12 @@ html,
   padding-inline: var(--spacing-smlst);
   color: hsl(var(--clr-gray-ltr));
 }
+.search-btn:hover{
+  transition: .4s;
+  transform: translate( 3px);
+  color: var(--clr-gray-dkst);
+  cursor: pointer;
+}
 
 .search-content:focus-within .search-btn {
   color: hsl(var(--clr-primary-base));
@@ -391,8 +399,10 @@ html,
 
 .post-tags .post-tag-link:hover,
 .post-tags .post-tag-link:hover i {
-  color: hsl(var(--clr-primary-base));
-  text-decoration: none;
+  transition: .4s;
+  transform: translate( 3px);
+  color: var(--clr-gray-dkst);
+  cursor: pointer;
 }
 
 .post-tag-link {
@@ -493,3 +503,9 @@ html,
   text-decoration: none;
 }
 
+.footer-hover:hover{
+  transition: .4s;
+  transform: translate( 3px);
+  color: var(--clr-gray-dkst);
+  cursor: pointer;
+}

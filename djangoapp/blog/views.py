@@ -1,4 +1,5 @@
 from typing import Any
+from django import http
 from django.core.paginator import Paginator
 from django.db.models.query import QuerySet
 from django.shortcuts import render,redirect
@@ -107,6 +108,41 @@ class TagListView(PostListView):
         })
         return context
 
+
+class SearchListView(PostListView):
+    def __init__(self,*args, **kwargs):
+        super().__init__(*args,**kwargs)
+        self._search_value = ''
+
+    def setup(self, request, *args, **kwargs):
+        self._search_value = request.GET.get('search','').strip()
+        return super().setup(request, *args, **kwargs)
+
+    def get_queryset(self) -> QuerySet[Any]:
+        search_value = self._search_value
+        return super().get_queryset().filter(
+        # Título contem searchvalue ou
+        # Excerto contem searchvalue ou
+        # Conteudo contem searchvalue 
+
+        Q(title__icontains=search_value) | 
+        Q(excerpt__icontains=search_value) | 
+        Q(content__icontains=search_value) 
+    )[:PER_PAGE]
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        search_value = self._search_value
+        context.update({
+            'page_title' : f'{search_value[:30]} - Search - ',
+            'search_value':search_value,
+        })
+        return context
+    
+    def get(self, request, *args, **kwargs):
+        if self._search_value == '':
+            return redirect('blog:index')
+        return super().get(request, *args, **kwargs)
 
 def search(request):
     search_value = request.GET.get('search','').strip()
