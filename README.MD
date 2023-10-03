@@ -2,7 +2,7 @@
 
 Portuguese version at the end
 
-This is a blog project developed using Django. It allows users to create and publish blog posts, manage categories and tags, and display pages with custom content. The project follows the MVC (Model-View-Controller) architectural pattern and incorporates various Django features and functionalities.
+This is a blog project developed using Django. It allows users to create and publish blog posts, manage categories and tags, and display pages with custom content. The project follows the MVT (Model-View-Template) architectural pattern and incorporates various Django features and functionalities.
 
 ## Table of Contents
 
@@ -135,7 +135,7 @@ Please provide a clear description of your changes in the pull request, along wi
 
 # Projeto Blog Django - Reis567
 
-Este é um projeto de blog desenvolvido usando Django. Ele permite que os usuários criem e publiquem postagens de blog, gerenciem categorias e tags e exibam páginas com conteúdo personalizado. O projeto segue o padrão arquitetural MVC (Model-View-Controller) e incorpora vários recursos e funcionalidades do Django.
+Este é um projeto de blog desenvolvido usando Django. Ele permite que os usuários criem e publiquem postagens de blog, gerenciem categorias e tags e exibam páginas com conteúdo personalizado. O projeto segue o padrão arquitetural MVT (Model-View-Template) e incorpora vários recursos e funcionalidades do Django.
 
 ## Índice
 
